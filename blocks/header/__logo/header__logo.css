@@ -1,5 +1,4 @@
-.header__logo {
-  box-sizing: border-box;
+.header {
   object-fit: cover;
   padding-bottom: 4.66%;
 }
