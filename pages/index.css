@@ -18,3 +18,10 @@
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__button-add/profile__button-add.css);
+
+@import url(../blocks/foto-grid/foto-grid.css);
+@import url(../blocks/foto-grid/__elements/foto-grid__elements.css);
+@import url(../blocks/foto-grid/__element/foto-grid__element.css);
+@import url(../blocks/foto-grid/__foto/foto-grid__foto.css);
+@import url(../blocks/foto-grid/__title/foto-grid__title.css);
+@import url(../blocks/foto-grid/__button/foto-grid__button.css);
