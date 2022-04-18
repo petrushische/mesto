@@ -2,12 +2,28 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 849px;
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(min-content, max-content));
-  grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   column-gap: 2px;
   row-gap: 20px;
   font-size: 0;
+  max-width: 849px;
+  max-height: 744px;
+}
+
+/*@media screen and (max-width: 980px) {
+  .foto-grid__elements {
+    grid-template-columns: repeat(2, fit-content(282px));
+    justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .foto-grid__elements {
+    grid-template-columns: repeat(2, fit-content(200px));
+
+  }
+
 }
