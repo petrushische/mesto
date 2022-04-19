@@ -6,3 +6,11 @@
   color: #545454;
   max-height: 18px;
 }
+
+@media screen and (max-width: 460px) {
+  .footer__text {
+    font-size: 14px;
+    line-height: 17px;
+    max-height: 14px;
+  }
+}

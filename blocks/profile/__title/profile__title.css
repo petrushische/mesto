@@ -8,7 +8,6 @@
   color: #FFFFFF;
   display: inline-block;
   width: 87.5%;
-  max-height: 39px;
 }
 
 @media screen and (max-width: 1150px) {
@@ -17,6 +16,11 @@
   }
 }
 
-@media screen and (max-width: 980px) {
-  .profile__title {}
+@media screen and (max-width: 460px) {
+  .profile__title {
+    font-size: 27px;
+    line-height: 1.22;
+    text-align: center;
+
+  }
 }

@@ -9,20 +9,19 @@
   row-gap: 20px;
   font-size: 0;
   max-width: 849px;
-  max-height: 744px;
 }
 
-/*@media screen and (max-width: 980px) {
+@media screen and (max-width: 850px) {
   .foto-grid__elements {
-    grid-template-columns: repeat(2, fit-content(282px));
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 460px) {
   .foto-grid__elements {
-    grid-template-columns: repeat(2, fit-content(200px));
+    grid-template-columns: 1fr;
+    justify-content: center;
 
   }
 

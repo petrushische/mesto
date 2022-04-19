@@ -9,7 +9,9 @@
 }
 
 @media screen and (max-width: 1150px) {
-  .profile__subtitle {}
+  .profile__subtitle {
+    margin-top: 4.25%;
+  }
 }
 
 @media screen and (max-width: 980px) {
