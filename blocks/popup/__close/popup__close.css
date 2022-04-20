@@ -1,0 +1,14 @@
+.popup__close {
+  order: 2;
+  margin-top: 155px;
+  /* margin-top: 12.11%;
+  margin-bottom: 41.64%;
+  margin-left: 67.42%;
+  margin-right: 30.08%;*/
+  border: none;
+  padding: 0;
+  background: none;
+  background-image: url(../../../images/popup-Close.svg);
+  width: 32px;
+  height: 32px;
+}
