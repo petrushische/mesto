@@ -1,5 +1,4 @@
 .popup {
-  position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, .5);
@@ -9,4 +8,11 @@
   display: flex;
   justify-content: center;
   position: fixed;
+}
+
+@media screen and (max-width: 470px) {
+  .popup {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }

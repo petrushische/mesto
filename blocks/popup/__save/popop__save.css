@@ -11,4 +11,19 @@
   border-radius: 2px;
   margin-top: 48px;
   margin-bottom: 37px;
+  transition: opacity 1s ease;
+}
+
+.popup__save:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+@media screen and (max-width: 470px) {
+  .popup__save {
+    max-width: 238px;
+    height: 46px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
 }

@@ -1,7 +1,4 @@
 .popup__input {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   height: 27px;
   padding: 0;
   max-width: 358px;
@@ -11,10 +8,16 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 121.43%;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
 .popup__input:nth-of-type(2) {
   margin-top: 30px;
+}
+
+@media screen and (max-width: 470px) {
+  .popup__input {
+    max-width: 238px;
+  }
 }
