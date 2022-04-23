@@ -6,7 +6,7 @@
     url("Inter-Regular.woff?v=3.19") format("woff");
 }
 
-
+/*Для title блока profile info указан шрифт 500, Medium. Bold в макете не указан*/
 @font-face {
   font-family: 'Inter';
   font-style: normal;
