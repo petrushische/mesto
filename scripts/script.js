@@ -34,3 +34,42 @@ function formSubmit(evt) {
 }
 
 form.addEventListener("submit", formSubmit);
+
+
+// спринт 5
+//добавил карточки
+const initialCards = [{
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+const popupCardsAdd = document.querySelector(".popup_cards_add");
+const popupCloseCardsAdd = document.querySelector(".popop__close_cards_add");
+const formCardsAdd = document.querySelector(".profile__button-add");
+
+function popupAddCardsToggle() {
+  popupCardsAdd.classList.toggle("popup_opened");
+}
+formCardsAdd.addEventListener("click", popupAddCardsToggle);
+popupCloseCardsAdd.addEventListener("click", popupAddCardsToggle);
