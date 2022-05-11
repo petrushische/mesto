@@ -37,6 +37,18 @@ form.addEventListener("submit", formSubmit);
 
 
 // спринт 5
+// открытие и закрытие popup
+const popupCardsAdd = document.querySelector(".popup_cards_add");
+const popupCloseCardsAdd = document.querySelector(".popop__close_cards_add");
+const buttonCardsAdd = document.querySelector(".profile__button-add");
+
+function popupAddCardsToggle() {
+  popupCardsAdd.classList.toggle("popup_opened");
+}
+buttonCardsAdd.addEventListener("click", popupAddCardsToggle);
+popupCloseCardsAdd.addEventListener("click", popupAddCardsToggle);
+
+
 //добавил карточки
 const initialCards = [{
     name: 'Архыз',
@@ -63,13 +75,47 @@ const initialCards = [{
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+// вытаскивание в DOM
 
-const popupCardsAdd = document.querySelector(".popup_cards_add");
-const popupCloseCardsAdd = document.querySelector(".popop__close_cards_add");
-const formCardsAdd = document.querySelector(".profile__button-add");
+//контейнер
+const ContainerForCard = document.querySelector(".foto-grid__elements");
+// форма
+const formCardsAdd = document.querySelector(".popup__container_cards_add");
+//поля формы
+const inputCardsAddName = formCardsAdd.querySelector(".popup__input_cards-add_name");
+const inputCardsAddLink = formCardsAdd.querySelector(".popup__input_cards-add_link");
 
-function popupAddCardsToggle() {
-  popupCardsAdd.classList.toggle("popup_opened");
+// template 
+const templateCard = document.querySelector("#template-card").content.querySelector(".foto-grid__element");
+// рендер template
+const renderTemplateCard = (item) => {
+  const cloneCard = templateCard.cloneNode(true);
+  const fotoCard = cloneCard.querySelector(".foto-grid__foto");
+  const titlCard = cloneCard.querySelector(".foto-grid__title-text");
+  fotoCard.src = `${item.link}`
+  titlCard.textContent = item.name;
+  return cloneCard;
+
 }
-formCardsAdd.addEventListener("click", popupAddCardsToggle);
-popupCloseCardsAdd.addEventListener("click", popupAddCardsToggle);
+
+
+// пробежаться по массиву
+function renderingCard(item) {
+  ContainerForCard.prepend(renderTemplateCard(item));
+}
+initialCards.forEach((item) => {
+  renderingCard(item);
+});
+
+// Работа с кнопкой submit
+const buttunSubmitCardsAdd = (evt) => {
+  evt.preventDefault();
+  renderingCard({
+    name: inputCardsAddName.value,
+    link: inputCardsAddLink.value
+  });
+  inputCardsAddName.value = "";
+  inputCardsAddLink.value = "";
+  popupAddCardsToggle();
+}
+formCardsAdd.addEventListener("submit", buttunSubmitCardsAdd);

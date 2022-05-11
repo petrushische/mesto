@@ -31,74 +31,7 @@
           <button class="profile__button-add" type="button"></button>
         </section>
         <section class="foto-grid" aria-label="Карточки">
-          <ul class="foto-grid__elements">
-            <li class="foto-grid__element">
-              <img
-                src="images/Замок.png"
-                alt="Карачаевск"
-                class="foto-grid__foto"
-              />
-              <div class="foto-grid__title">
-                <h2 class="foto-grid__title-text">Карачаевск</h2>
-                <button class="foto-grid__button" type="button"></button>
-              </div>
-            </li>
-            <li class="foto-grid__element">
-              <img
-                src="images/Эльбрус.png"
-                alt="Гора Эльбрус"
-                class="foto-grid__foto"
-              />
-              <div class="foto-grid__title">
-                <h2 class="foto-grid__title-text">Гора Эльбрус</h2>
-                <button class="foto-grid__button" type="button"></button>
-              </div>
-            </li>
-            <li class="foto-grid__element">
-              <img
-                src="images/Домбай.png"
-                alt="Домбай"
-                class="foto-grid__foto"
-              />
-              <div class="foto-grid__title">
-                <h2 class="foto-grid__title-text">Домбай</h2>
-                <button class="foto-grid__button" type="button"></button>
-              </div>
-            </li>
-            <li class="foto-grid__element">
-              <img
-                src="images/Эльбрус.png"
-                alt="Гора Эльбрус"
-                class="foto-grid__foto"
-              />
-              <div class="foto-grid__title">
-                <h2 class="foto-grid__title-text">Гора Эльбрус</h2>
-                <button class="foto-grid__button" type="button"></button>
-              </div>
-            </li>
-            <li class="foto-grid__element">
-              <img
-                src="images/Домбай.png"
-                alt="Домбай"
-                class="foto-grid__foto"
-              />
-              <div class="foto-grid__title">
-                <h2 class="foto-grid__title-text">Домбай</h2>
-                <button class="foto-grid__button" type="button"></button>
-              </div>
-            </li>
-            <li class="foto-grid__element">
-              <img
-                src="images/Замок.png"
-                alt="Карачаевск"
-                class="foto-grid__foto"
-              />
-              <div class="foto-grid__title">
-                <h2 class="foto-grid__title-text">Карачаевск</h2>
-                <button class="foto-grid__button" type="button"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="foto-grid__elements"></ul>
         </section>
       </main>
       <footer class="footer">
@@ -125,15 +58,28 @@
         name="form-cards-add"
       >
         <h2 class="popup__title popup__title_cards_add">Новое место</h2>
-        <input type="text" class="popup__input" placeholder="Название" />
         <input
           type="text"
-          class="popup__input"
+          class="popup__input popup__input_cards-add_name"
+          placeholder="Название"
+        />
+        <input
+          type="text"
+          class="popup__input popup__input_cards-add_link"
           placeholder="Ссылка на картинку"
         />
         <button class="popup__save">Сохранить</button>
       </form>
     </div>
+    <template id="template-card">
+      <li class="foto-grid__element">
+        <img src="" alt="Фотография" class="foto-grid__foto" />
+        <div class="foto-grid__title">
+          <h2 class="foto-grid__title-text"></h2>
+          <button class="foto-grid__button" type="button"></button>
+        </div>
+      </li>
+    </template>
     <script src="scripts/script.js"></script>
   </body>
 </html>
