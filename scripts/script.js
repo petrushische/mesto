@@ -51,28 +51,28 @@ popupCloseCardsAdd.addEventListener("click", popupAddCardsToggle);
 
 //добавил карточки
 const initialCards = [{
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: 'Карачаевск',
+    link: '../images/Замок.png'
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: 'Гора Эльбрус',
+    link: '../images/Эльбрус.png'
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: 'Домбай',
+    link: '../images/Домбай.png'
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: 'Гора Эльбрус',
+    link: '../images/Эльбрус.png'
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: 'Домбай',
+    link: '../images/Домбай.png'
   },
   {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    name: 'Карачаевск',
+    link: '../images/Замок.png'
   }
 ];
 // вытаскивание в DOM
@@ -90,18 +90,25 @@ const templateCard = document.querySelector("#template-card").content.querySelec
 // рендер template
 const renderTemplateCard = (item) => {
   const cloneCard = templateCard.cloneNode(true);
+
   const fotoCard = cloneCard.querySelector(".foto-grid__foto");
   const titlCard = cloneCard.querySelector(".foto-grid__title-text");
-  fotoCard.src = `${item.link}`
+  fotoCard.src = item.link;
   titlCard.textContent = item.name;
-  return cloneCard;
 
+  const likeButton = cloneCard.querySelector(".foto-grid__button");
+  likeButton.addEventListener("click", function (evt) {
+    const eventTarget = evt.target;
+    eventTarget.classList.toggle("foro-grid__button_type_active");
+  });
+  return cloneCard;
 }
 
 
 // пробежаться по массиву
 function renderingCard(item) {
   ContainerForCard.prepend(renderTemplateCard(item));
+
 }
 initialCards.forEach((item) => {
   renderingCard(item);
@@ -110,10 +117,15 @@ initialCards.forEach((item) => {
 // Работа с кнопкой submit
 const buttunSubmitCardsAdd = (evt) => {
   evt.preventDefault();
-  renderingCard({
-    name: inputCardsAddName.value,
-    link: inputCardsAddLink.value
-  });
+  if ((inputCardsAddName.value === "") && (inputCardsAddLink.value === "")) {
+    console.log(undefined);
+  } else {
+    renderingCard({
+      name: inputCardsAddName.value,
+      link: inputCardsAddLink.value
+    });
+  }
+
   inputCardsAddName.value = "";
   inputCardsAddLink.value = "";
   popupAddCardsToggle();

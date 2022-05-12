@@ -14,7 +14,3 @@
 .foto-grid__button:hover {
   cursor: pointer;
 }
-
-.foto-grid__button:active {
-  background-image: url(../../../images/Like-active.svg);
-}
