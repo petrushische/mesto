@@ -40,6 +40,7 @@ form.addEventListener("submit", formSubmit);
 // открытие и закрытие popup
 const popupCardsAdd = document.querySelector(".popup-cards-add");
 const popupCloseCardsAdd = document.querySelector(".popop__close-cards-add");
+
 const buttonCardsAdd = document.querySelector(".profile__button-add");
 
 function popupAddCardsToggle() {
@@ -84,6 +85,7 @@ const formCardsAdd = document.querySelector(".popup__container-cards-add");
 //поля формы
 const inputCardsAddName = formCardsAdd.querySelector(".popup__input-cards-add-name");
 const inputCardsAddLink = formCardsAdd.querySelector(".popup__input-cards-add-link");
+
 
 // Попап для большой картинки
 const bigPopUp = document.querySelector(".popup-sprint-five");
