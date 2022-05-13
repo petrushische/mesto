@@ -38,6 +38,7 @@
         <p class="footer__text">© 2020 Mesto Russia</p>
       </footer>
     </div>
+    <!--Попап спринт 4-->
     <div class="popup">
       <button class="popup__close" type="button"></button>
       <form class="popup__container" name="profile-form">
@@ -47,7 +48,15 @@
         <button class="popup__save">Сохранить</button>
       </form>
     </div>
-    <!--Форма спринта 5-->
+    <!--Попап для картинок-->
+    <div class="popup-sprint-five">
+      <div class="popup-sprint-five__wrapper">
+        <button class="popup-sprint-five__button" type="button"></button>
+        <img src="." alt="Картинка" class="popup-sprint-five__foto" />
+        <p class="popup-sprint-five__text"></p>
+      </div>
+    </div>
+    <!--попап спринта 5-->
     <div class="popup popup_cards_add">
       <button
         class="popup__close popop__close_cards_add"
@@ -71,8 +80,10 @@
         <button class="popup__save">Сохранить</button>
       </form>
     </div>
+    <!--Темплайт-->
     <template id="template-card">
       <li class="foto-grid__element">
+        <button class="foto-grid__trash" type="button"></button>
         <img src="" alt="Фотография" class="foto-grid__foto" />
         <div class="foto-grid__title">
           <h2 class="foto-grid__title-text"></h2>
@@ -80,6 +91,7 @@
         </div>
       </li>
     </template>
+    <!--Скрипт-->
     <script src="scripts/script.js"></script>
   </body>
 </html>

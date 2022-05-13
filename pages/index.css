@@ -27,6 +27,7 @@
 @import url(../blocks/foto-grid/__title-text/foto-grid__title-text.css);
 @import url(../blocks/foto-grid/__button/foto-grid__button.css);
 @import url(../blocks/foto-grid/__button/_type/foro-grid__button_type_active.css);
+@import url(../blocks/foto-grid/__trash/foto-grid__trash.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
@@ -34,11 +35,14 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__container/_cards/popup__container_cards_add.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__title/_cards/popup__title_cards_add.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save/popop__save.css);
 @import url(../blocks/popup/__close/popup__close.css);
-@import url(../blocks/popup/__close/_cards/popop__close_cards_add.css);
-@import url(../blocks/popup/_cards/popup_cards_add.css);
+
+@import url(../blocks/popup-sprint-five/popup-sprint-five.css);
+@import url(../blocks/popup-sprint-five/_opened/popup-sprint-five_opened.css);
+@import url(../blocks/popup-sprint-five/__wrapper/popup-sprint-five__wrapper.css);
+@import url(../blocks/popup-sprint-five/__button/popup-sprint-five__button.css);
+@import url(../blocks/popup-sprint-five/__foto/popup-sprint-five__foto.css);
+@import url(../blocks/popup-sprint-five/__text/popup-sprint-five__text.css);

@@ -85,26 +85,54 @@ const formCardsAdd = document.querySelector(".popup__container_cards_add");
 const inputCardsAddName = formCardsAdd.querySelector(".popup__input_cards-add_name");
 const inputCardsAddLink = formCardsAdd.querySelector(".popup__input_cards-add_link");
 
+// Попап для большой картинки
+const bigPopUp = document.querySelector(".popup-sprint-five");
+const bigClose = bigPopUp.querySelector(".popup-sprint-five__button");
+const bigFoto = bigPopUp.querySelector(".popup-sprint-five__foto");
+const bigTitle = bigPopUp.querySelector(".popup-sprint-five__text");
+
+
+
 // template 
 const templateCard = document.querySelector("#template-card").content.querySelector(".foto-grid__element");
+
 // рендер template
 const renderTemplateCard = (item) => {
   const cloneCard = templateCard.cloneNode(true);
-
+  //фото и название
   const fotoCard = cloneCard.querySelector(".foto-grid__foto");
+
+  function toggleBigPopUp() {
+    bigPopUp.classList.toggle("popup-sprint-five_opened");
+    bigFoto.src = fotoCard.src;
+    bigTitle.textContent = titlCard.textContent;
+  }
+  fotoCard.addEventListener("click", toggleBigPopUp);
+  bigClose.addEventListener("click", () => {
+    bigPopUp.classList.remove("popup-sprint-five_opened");
+  })
+
+
   const titlCard = cloneCard.querySelector(".foto-grid__title-text");
   fotoCard.src = item.link;
   titlCard.textContent = item.name;
 
+  // лайк
   const likeButton = cloneCard.querySelector(".foto-grid__button");
-  likeButton.addEventListener("click", function (evt) {
-    const eventTarget = evt.target;
-    eventTarget.classList.toggle("foro-grid__button_type_active");
+  likeButton.addEventListener("click", (evt) => {
+    const eventTargetLikeButton = evt.target;
+    eventTargetLikeButton.classList.toggle("foro-grid__button_type_active");
   });
+
+  // удалить
+  const deleteButton = cloneCard.querySelector(".foto-grid__trash");
+  deleteButton.addEventListener("click", (evt) => {
+    const eventTargetTrashButton = evt.target;
+    const formRemove = eventTargetTrashButton.closest(".foto-grid__element");
+    formRemove.remove();
+  })
   return cloneCard;
 }
-
-
 // пробежаться по массиву
 function renderingCard(item) {
   ContainerForCard.prepend(renderTemplateCard(item));
@@ -113,6 +141,9 @@ function renderingCard(item) {
 initialCards.forEach((item) => {
   renderingCard(item);
 });
+
+
+
 
 // Работа с кнопкой submit
 const buttunSubmitCardsAdd = (evt) => {
