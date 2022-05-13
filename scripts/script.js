@@ -38,14 +38,8 @@ form.addEventListener("submit", formSubmit);
 
 // спринт 5
 // открытие и закрытие popup
-<<<<<<< HEAD
 const popupCardsAdd = document.querySelector(".popup_cards_add");
 const popupCloseCardsAdd = document.querySelector(".popup__close_cards_add");
-=======
-const popupCardsAdd = document.querySelector(".popup-cards-add");
-const popupCloseCardsAdd = document.querySelector(".popop__close-cards-add");
-
->>>>>>> b28d4c79d71652495bfd4a65839735b6a528b62c
 const buttonCardsAdd = document.querySelector(".profile__button-add");
 
 function popupAddCardsToggle() {
