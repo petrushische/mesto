@@ -9,13 +9,13 @@ let popupInputName = document.querySelector('.popup__input_type_name');
 let popupInputText = document.querySelector(".popup__input_type_text");
 
 let form = document.querySelector(".popup__container");
-/*let submit = document.querySelector(".popup__save");*/
+
 
 
 
 function popupToggle() {
-  popup.classList.toggle("popup_opened");
-  if (popup.classList.contains("popup_opened")) {
+  popup.classList.toggle("popup__opened");
+  if (popup.classList.contains("popup__opened")) {
     popupInputName.value = profileTitle.textContent;
     popupInputText.value = profileSubtitle.textContent;
   }
@@ -38,12 +38,12 @@ form.addEventListener("submit", formSubmit);
 
 // спринт 5
 // открытие и закрытие popup
-const popupCardsAdd = document.querySelector(".popup_cards_add");
-const popupCloseCardsAdd = document.querySelector(".popop__close_cards_add");
+const popupCardsAdd = document.querySelector(".popup-cards-add");
+const popupCloseCardsAdd = document.querySelector(".popop__close-cards-add");
 const buttonCardsAdd = document.querySelector(".profile__button-add");
 
 function popupAddCardsToggle() {
-  popupCardsAdd.classList.toggle("popup_opened");
+  popupCardsAdd.classList.toggle("popup__opened");
 }
 buttonCardsAdd.addEventListener("click", popupAddCardsToggle);
 popupCloseCardsAdd.addEventListener("click", popupAddCardsToggle);
@@ -80,10 +80,10 @@ const initialCards = [{
 //контейнер
 const ContainerForCard = document.querySelector(".foto-grid__elements");
 // форма
-const formCardsAdd = document.querySelector(".popup__container_cards_add");
+const formCardsAdd = document.querySelector(".popup__container-cards-add");
 //поля формы
-const inputCardsAddName = formCardsAdd.querySelector(".popup__input_cards-add_name");
-const inputCardsAddLink = formCardsAdd.querySelector(".popup__input_cards-add_link");
+const inputCardsAddName = formCardsAdd.querySelector(".popup__input-cards-add-name");
+const inputCardsAddLink = formCardsAdd.querySelector(".popup__input-cards-add-link");
 
 // Попап для большой картинки
 const bigPopUp = document.querySelector(".popup-sprint-five");
@@ -103,13 +103,13 @@ const renderTemplateCard = (item) => {
   const fotoCard = cloneCard.querySelector(".foto-grid__foto");
 
   function toggleBigPopUp() {
-    bigPopUp.classList.toggle("popup-sprint-five_opened");
+    bigPopUp.classList.toggle("popup-sprint-five__opened");
     bigFoto.src = fotoCard.src;
     bigTitle.textContent = titlCard.textContent;
   }
   fotoCard.addEventListener("click", toggleBigPopUp);
   bigClose.addEventListener("click", () => {
-    bigPopUp.classList.remove("popup-sprint-five_opened");
+    bigPopUp.classList.remove("popup-sprint-five__opened");
   })
 
 
