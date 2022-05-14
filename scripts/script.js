@@ -1,39 +1,43 @@
-const open = document.querySelector(".profile__button-edit");
-const close = document.querySelector(".popup__close");
-const popup = document.querySelector(".popup");
+const popupOpen = document.querySelector(".profile__button-edit");
+const popupClose = document.querySelector(".popup__close");
+const popupNamechange = document.querySelector(".popup");
 
-let profileTitle = document.querySelector(".profile__title");
-let profileSubtitle = document.querySelector(".profile__subtitle");
+const profileTitle = document.querySelector(".profile__title");
+const profileSubtitle = document.querySelector(".profile__subtitle");
 
-let popupInputName = document.querySelector('.popup__input_type_name');
-let popupInputText = document.querySelector(".popup__input_type_text");
+const popupInputName = document.querySelector('.popup__input_type_name');
+const popupInputText = document.querySelector(".popup__input_type_text");
 
-let form = document.querySelector(".popup__container");
+const formNameChange = document.querySelector(".popup__container");
 
-
-
-
-function popupToggle() {
-  popup.classList.toggle("popup__opened");
-  if (popup.classList.contains("popup__opened")) {
-    popupInputName.value = profileTitle.textContent;
-    popupInputText.value = profileSubtitle.textContent;
-  }
+function editing() {
+  popupInputName.value = profileTitle.textContent;
+  popupInputText.value = profileSubtitle.textContent;
 }
 
-open.addEventListener("click", popupToggle);
-close.addEventListener("click", popupToggle);
+function open() {
+  popupNamechange.classList.add("popup__opened");
+  editing();
+}
+
+function close() {
+  popupNamechange.classList.remove("popup__opened");
+}
+
+
+popupOpen.addEventListener("click", open);
+popupClose.addEventListener("click", close);
 
 
 
-function formSubmit(evt) {
+function formNameChangeSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = popupInputName.value;
   profileSubtitle.textContent = popupInputText.value;
-  popupToggle();
+  close();
 }
 
-form.addEventListener("submit", formSubmit);
+formNameChange.addEventListener("submit", formNameChangeSubmit);
 
 
 // спринт 5
@@ -78,7 +82,7 @@ const initialCards = [{
 // вытаскивание в DOM
 
 //контейнер
-const ContainerForCard = document.querySelector(".foto-grid__elements");
+
 // форма
 const formCardsAdd = document.querySelector(".popup__container-cards-add");
 //поля формы
@@ -92,6 +96,11 @@ const bigClose = bigPopUp.querySelector(".popup-sprint-five__button");
 const bigFoto = bigPopUp.querySelector(".popup-sprint-five__foto");
 const bigTitle = bigPopUp.querySelector(".popup-sprint-five__text");
 
+// Закрытие большого попапа
+bigClose.addEventListener("click", () => {
+  bigPopUp.classList.remove("popup-sprint-five__opened");
+})
+
 
 
 // template 
@@ -103,15 +112,13 @@ const renderTemplateCard = (item) => {
   //фото и название
   const fotoCard = cloneCard.querySelector(".foto-grid__foto");
 
-  function toggleBigPopUp() {
-    bigPopUp.classList.toggle("popup-sprint-five__opened");
+  function openBigPopUp() {
+    bigPopUp.classList.add("popup-sprint-five__opened");
     bigFoto.src = fotoCard.src;
     bigTitle.textContent = titlCard.textContent;
   }
-  fotoCard.addEventListener("click", toggleBigPopUp);
-  bigClose.addEventListener("click", () => {
-    bigPopUp.classList.remove("popup-sprint-five__opened");
-  })
+  fotoCard.addEventListener("click", openBigPopUp);
+
 
 
   const titlCard = cloneCard.querySelector(".foto-grid__title-text");
@@ -135,7 +142,8 @@ const renderTemplateCard = (item) => {
   return cloneCard;
 }
 // пробежаться по массиву
-function renderingCard(item) {
+function renderingCard(item, ContainerForCard) {
+  ContainerForCard = document.querySelector(".foto-grid__elements");
   ContainerForCard.prepend(renderTemplateCard(item));
 
 }
@@ -149,14 +157,11 @@ initialCards.forEach((item) => {
 // Работа с кнопкой submit
 const buttunSubmitCardsAdd = (evt) => {
   evt.preventDefault();
-  if ((inputCardsAddName.value === "") && (inputCardsAddLink.value === "")) {
-    console.log(undefined);
-  } else {
-    renderingCard({
-      name: inputCardsAddName.value,
-      link: inputCardsAddLink.value
-    });
-  }
+
+  renderingCard({
+    name: inputCardsAddName.value,
+    link: inputCardsAddLink.value
+  });
 
   inputCardsAddName.value = "";
   inputCardsAddLink.value = "";
