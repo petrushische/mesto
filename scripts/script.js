@@ -142,6 +142,9 @@ const renderTemplateCard = (item) => {
   return cloneCard;
 }
 // пробежаться по массиву
+
+
+// Прошу уточнить этот комментарий, не понял что вы имели ввиду, сделал так,
 function renderingCard(item, ContainerForCard) {
   ContainerForCard = document.querySelector(".foto-grid__elements");
   ContainerForCard.prepend(renderTemplateCard(item));
