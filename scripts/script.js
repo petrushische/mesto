@@ -1,5 +1,5 @@
-const popupOpen = document.querySelector(".profile__button-edit");
-const popupClose = document.querySelector(".popup__close");
+const popupChangeOpen = document.querySelector(".profile__button-edit");
+const popupChangeClose = document.querySelector(".popup__close");
 const popupNamechange = document.querySelector(".popup");
 
 const profileTitle = document.querySelector(".profile__title");
@@ -15,18 +15,25 @@ function editing() {
   popupInputText.value = profileSubtitle.textContent;
 }
 
-function open() {
-  popupNamechange.classList.add("popup__opened");
-  editing();
+function popupOpened(popup) {
+  popup.classList.add("popup__opened");
 }
 
-function close() {
-  popupNamechange.classList.remove("popup__opened");
+function popupClose(popup) {
+  popup.classList.remove("popup__opened");
 }
 
 
-popupOpen.addEventListener("click", open);
-popupClose.addEventListener("click", close);
+
+
+popupChangeOpen.addEventListener("click", open = () => {
+  popupOpened(popupNamechange);
+  editing()
+});
+
+popupChangeClose.addEventListener("click", cloze = () => {
+  popupClose(popupNamechange);
+});
 
 
 
@@ -34,7 +41,7 @@ function formNameChangeSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = popupInputName.value;
   profileSubtitle.textContent = popupInputText.value;
-  close();
+  popupClose(popupNamechange);
 }
 
 formNameChange.addEventListener("submit", formNameChangeSubmit);
@@ -46,43 +53,21 @@ const popupCardsAdd = document.querySelector(".popup_cards_add");
 const popupCloseCardsAdd = document.querySelector(".popup__close_cards_add");
 const buttonCardsAdd = document.querySelector(".profile__button-add");
 
-function popupAddCardsToggle() {
-  popupCardsAdd.classList.toggle("popup__opened");
-}
-buttonCardsAdd.addEventListener("click", popupAddCardsToggle);
-popupCloseCardsAdd.addEventListener("click", popupAddCardsToggle);
+
+buttonCardsAdd.addEventListener("click", open = () => {
+  popupOpened(popupCardsAdd);
+});
+popupCloseCardsAdd.addEventListener("click", cloze = () => {
+  popupClose(popupCardsAdd);
+});
 
 
 //добавил карточки
-const initialCards = [{
-    name: 'Карачаевск',
-    link: '../images/Замок.png'
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: '../images/Эльбрус.png'
-  },
-  {
-    name: 'Домбай',
-    link: '../images/Домбай.png'
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: '../images/Эльбрус.png'
-  },
-  {
-    name: 'Домбай',
-    link: '../images/Домбай.png'
-  },
-  {
-    name: 'Карачаевск',
-    link: '../images/Замок.png'
-  }
-];
+
 // вытаскивание в DOM
 
 //контейнер
-
+const containerForCard = document.querySelector(".foto-grid__elements");
 // форма
 const formCardsAdd = document.querySelector(".popup__container-cards-add");
 //поля формы
@@ -96,7 +81,7 @@ const bigClose = bigPopUp.querySelector(".popup-sprint-five__button");
 const bigFoto = bigPopUp.querySelector(".popup-sprint-five__foto");
 const bigTitle = bigPopUp.querySelector(".popup-sprint-five__text");
 
-// Закрытие большого попапа
+// Закрытие большого попапа  Этот попап не трогал так как он единственный и для него используется другой класс
 bigClose.addEventListener("click", () => {
   bigPopUp.classList.remove("popup-sprint-five__opened");
 })
@@ -145,13 +130,13 @@ const renderTemplateCard = (item) => {
 
 
 // Прошу уточнить этот комментарий, не понял что вы имели ввиду, сделал так,
-function renderingCard(item, ContainerForCard) {
-  ContainerForCard = document.querySelector(".foto-grid__elements");
-  ContainerForCard.prepend(renderTemplateCard(item));
+function renderingCard(item, containerForCard) {
+
+  containerForCard.prepend(renderTemplateCard(item));
 
 }
 initialCards.forEach((item) => {
-  renderingCard(item);
+  renderingCard(item, containerForCard);
 });
 
 
@@ -164,10 +149,10 @@ const buttunSubmitCardsAdd = (evt) => {
   renderingCard({
     name: inputCardsAddName.value,
     link: inputCardsAddLink.value
-  });
+  }, containerForCard);
 
   inputCardsAddName.value = "";
   inputCardsAddLink.value = "";
-  popupAddCardsToggle();
+  popupClose(popupCardsAdd);
 }
 formCardsAdd.addEventListener("submit", buttunSubmitCardsAdd);
