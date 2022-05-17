@@ -15,11 +15,11 @@ function editing() {
   popupInputText.value = profileSubtitle.textContent;
 }
 
-function popupOpened(popup) {
+function openPopup(popup) {
   popup.classList.add("popup__opened");
 }
 
-function popupClose(popup) {
+function closePopup(popup) {
   popup.classList.remove("popup__opened");
 }
 
@@ -27,12 +27,12 @@ function popupClose(popup) {
 
 
 popupChangeOpen.addEventListener("click", open = () => {
-  popupOpened(popupNamechange);
+  openPopup(popupNamechange);
   editing()
 });
 
 popupChangeClose.addEventListener("click", cloze = () => {
-  popupClose(popupNamechange);
+  closePopup(popupNamechange);
 });
 
 
@@ -41,7 +41,7 @@ function formNameChangeSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = popupInputName.value;
   profileSubtitle.textContent = popupInputText.value;
-  popupClose(popupNamechange);
+  closePopup(popupNamechange);
 }
 
 formNameChange.addEventListener("submit", formNameChangeSubmit);
@@ -55,10 +55,10 @@ const buttonCardsAdd = document.querySelector(".profile__button-add");
 
 
 buttonCardsAdd.addEventListener("click", open = () => {
-  popupOpened(popupCardsAdd);
+  openPopup(popupCardsAdd);
 });
 popupCloseCardsAdd.addEventListener("click", cloze = () => {
-  popupClose(popupCardsAdd);
+  closePopup(popupCardsAdd);
 });
 
 
@@ -81,10 +81,12 @@ const bigClose = bigPopUp.querySelector(".popup-sprint-five__button");
 const bigFoto = bigPopUp.querySelector(".popup-sprint-five__foto");
 const bigTitle = bigPopUp.querySelector(".popup-sprint-five__text");
 
-// Закрытие большого попапа  Этот попап не трогал так как он единственный и для него используется другой класс
-bigClose.addEventListener("click", () => {
-  bigPopUp.classList.remove("popup-sprint-five__opened");
+
+
+bigClose.addEventListener("click", close = () => {
+  closePopup(bigPopUp);
 })
+
 
 
 
@@ -97,17 +99,19 @@ const renderTemplateCard = (item) => {
   //фото и название
   const fotoCard = cloneCard.querySelector(".foto-grid__foto");
 
-  function openBigPopUp() {
-    bigPopUp.classList.add("popup-sprint-five__opened");
-    bigFoto.src = fotoCard.src;
-    bigTitle.textContent = titlCard.textContent;
-  }
-  fotoCard.addEventListener("click", openBigPopUp);
 
+
+  fotoCard.addEventListener("click", open = () => {
+    openPopup(bigPopUp);
+    bigFoto.src = fotoCard.src;
+    bigFoto.alt = fotoCard.alt;
+    bigTitle.textContent = titlCard.textContent;
+  });
 
 
   const titlCard = cloneCard.querySelector(".foto-grid__title-text");
   fotoCard.src = item.link;
+  fotoCard.alt = item.alt;
   titlCard.textContent = item.name;
 
   // лайк
@@ -129,7 +133,6 @@ const renderTemplateCard = (item) => {
 // пробежаться по массиву
 
 
-// Прошу уточнить этот комментарий, не понял что вы имели ввиду, сделал так,
 function renderingCard(item, containerForCard) {
 
   containerForCard.prepend(renderTemplateCard(item));
@@ -148,11 +151,12 @@ const buttunSubmitCardsAdd = (evt) => {
 
   renderingCard({
     name: inputCardsAddName.value,
-    link: inputCardsAddLink.value
+    link: inputCardsAddLink.value,
+    alt: "Добавленная вами картинка"
   }, containerForCard);
 
   inputCardsAddName.value = "";
   inputCardsAddLink.value = "";
-  popupClose(popupCardsAdd);
+  closePopup(popupCardsAdd);
 }
 formCardsAdd.addEventListener("submit", buttunSubmitCardsAdd);

@@ -41,7 +41,7 @@
 @import url(../blocks/popup/__close/popup__close.css);
 
 @import url(../blocks/popup-sprint-five/popup-sprint-five.css);
-@import url(../blocks/popup-sprint-five/__opened/popup-sprint-five__opened.css);
+@import url(../blocks/popup-sprint-five/__opened/popup__opened.css);
 @import url(../blocks/popup-sprint-five/__wrapper/popup-sprint-five__wrapper.css);
 @import url(../blocks/popup-sprint-five/__button/popup-sprint-five__button.css);
 @import url(../blocks/popup-sprint-five/__foto/popup-sprint-five__foto.css);
