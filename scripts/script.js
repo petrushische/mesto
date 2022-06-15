@@ -160,3 +160,9 @@ const buttunSubmitCardsAdd = (evt) => {
   closePopup(popupCardsAdd);
 }
 formCardsAdd.addEventListener("submit", buttunSubmitCardsAdd);
+
+
+
+
+
+// спринт 6

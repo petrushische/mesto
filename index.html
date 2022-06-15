@@ -39,12 +39,31 @@
       </footer>
     </div>
     <!--Попап спринт 4-->
+
     <div class="popup">
       <button class="popup__close" type="button"></button>
-      <form class="popup__container" name="profile-form">
+      <form class="popup__container" name="profile-form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__input popup__input_type_name" />
-        <input type="text" class="popup__input popup__input_type_text" />
+
+        <input
+          id="change-one"
+          type="text"
+          class="popup__input popup__input_type_name"
+          required
+          minlength="2"
+          maxlength="40"
+        />
+        <span class="popup__error change-one-error"></span>
+
+        <input
+          id="change-two"
+          type="text"
+          class="popup__input popup__input_type_text"
+          required
+          minlength="2"
+          maxlength="200"
+        />
+        <span class="popup__error change-two-error"></span>
         <button class="popup__save">Сохранить</button>
       </form>
     </div>
@@ -66,20 +85,27 @@
       <form
         class="popup__container popup__container-cards-add"
         name="form-cards-add"
+        novalidate
       >
         <h2 class="popup__title popup__title-cards-add">Новое место</h2>
         <input
+          id="change-three"
           type="text"
           class="popup__input popup__input-cards-add-name"
           placeholder="Название"
           required
+          minlength="2"
+          maxlength="30"
         />
+        <span class="popup__error change-three-error"></span>
         <input
-          type="text"
+          id="change-four"
+          type="url"
           class="popup__input popup__input-cards-add-link"
           placeholder="Ссылка на картинку"
           required
         />
+        <span class="popup__error change-four-error"></span>
         <button class="popup__save">Сохранить</button>
       </form>
     </div>
@@ -96,6 +122,7 @@
     </template>
     <!--Скрипт-->
     <script src="scripts/cards.js"></script>
+    <script src="scripts/validate.js"></script>
     <script src="scripts/script.js"></script>
   </body>
 </html>
