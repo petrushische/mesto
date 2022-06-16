@@ -15,20 +15,22 @@ function editing() {
   popupInputText.value = profileSubtitle.textContent;
 }
 
+
+
 function openPopup(popup) {
   popup.classList.add("popup__opened");
+
 }
+
 
 function closePopup(popup) {
   popup.classList.remove("popup__opened");
 }
 
 
-
-
 popupChangeOpen.addEventListener("click", open = () => {
   openPopup(popupNamechange);
-  editing()
+  editing();
 });
 
 popupChangeClose.addEventListener("click", cloze = () => {
@@ -54,8 +56,10 @@ const popupCloseCardsAdd = document.querySelector(".popup__close_cards_add");
 const buttonCardsAdd = document.querySelector(".profile__button-add");
 
 
+
 buttonCardsAdd.addEventListener("click", open = () => {
   openPopup(popupCardsAdd);
+
 });
 popupCloseCardsAdd.addEventListener("click", cloze = () => {
   closePopup(popupCardsAdd);
@@ -166,3 +170,23 @@ formCardsAdd.addEventListener("submit", buttunSubmitCardsAdd);
 
 
 // спринт 6
+const keyHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    const popupActive = document.querySelector('.popup__opened');
+    closePopup(popupActive);
+
+  }
+}
+
+document.addEventListener("keydown", keyHandler);
+
+// 
+const popupList = document.querySelectorAll(".popup");
+popupList.forEach((item) => {
+  item.addEventListener("click", (evt) => {
+    const comPopup = evt.target.closest('.popup');
+    if (evt.target === evt.currentTarget) {
+      closePopup(comPopup);
+    }
+  })
+})

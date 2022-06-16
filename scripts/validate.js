@@ -50,9 +50,11 @@ function enableValidation(option) {
     if (hasInvalidInput(inputList)) {
       // сделай кнопку неактивной
       button.classList.add(`${option.inactiveButtonClass}`);
+      button.disabled = true;
     } else {
       // иначе сделай кнопку активной
       button.classList.remove(`${option.inactiveButtonClass}`);
+      button.disabled = false;
     }
   };
 
@@ -69,18 +71,20 @@ function enableValidation(option) {
     });
   };
 
-  const validForm = () => {
-    const formList = Array.from(document.querySelectorAll(`${option.formSelector}`));
-    formList.forEach((formElement) => {
-      formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-      });
-      setEventListeners(formElement);
-    });
+  const formList = Array.from(document.querySelectorAll(`${option.formSelector}`));
+  formList.forEach((formElement) => {
+    setEventListeners(formElement);
+  })
+
+
+  function validatePopupForm(popup, option) {
+    const inputList = Array.from(popup.querySelectorAll(option.inputSelector));
+    const buttonElement = popup.querySelector(option.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement, option);
+    inputList.forEach((inputElement) => {
+      hideInputError(inputElement, option);
+    })
   }
-  validForm();
-
-
 
 }
 
