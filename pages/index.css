@@ -33,6 +33,11 @@
 @import url(../blocks/footer/__text/footer__text.css);
 
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_sprint/popup_sprint_five.css);
+@import url(../blocks/popup/__wrapper/popup__wrapper.css);
+@import url(../blocks/popup/__button/popup__button.css);
+@import url(../blocks/popup/__foto/popup__foto.css);
+@import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__opened/popup__opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__title/popup__title.css);
@@ -44,9 +49,9 @@
 @import url(../blocks/popup/__error/popup__error.css);
 @import url(../blocks/popup/__error/_visible/popup__error_visible.css);
 
-@import url(../blocks/popup-sprint-five/popup-sprint-five.css);
+/*@import url(../blocks/popup-sprint-five/popup-sprint-five.css);
 @import url(../blocks/popup-sprint-five/__opened/popup__opened.css);
 @import url(../blocks/popup-sprint-five/__wrapper/popup-sprint-five__wrapper.css);
 @import url(../blocks/popup-sprint-five/__button/popup-sprint-five__button.css);
 @import url(../blocks/popup-sprint-five/__foto/popup-sprint-five__foto.css);
-@import url(../blocks/popup-sprint-five/__text/popup-sprint-five__text.css);
+@import url(../blocks/popup-sprint-five/__text/popup-sprint-five__text.css); */

@@ -86,87 +86,13 @@ function enableValidation(option) {
     })
   }
 
+
+}
+// дизэйбл кнопки
+function disabledButton(option, form) {
+  const button = form.querySelector(option.submitButtonSelector);
+  button.classList.add(option.inactiveButtonClass);
+  button.setAttribute('disabled', true);
 }
 
 enableValidation(settings);
-/*
-const formElement = document.querySelector('.popup__container');
-const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-console.log(inputList);
-
-
-
-
-
-
-
-/*const input = document.querySelector(".popup__input");
-const span = document.querySelector(`.${input.id}-error`);
-console.log(span);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-});*/

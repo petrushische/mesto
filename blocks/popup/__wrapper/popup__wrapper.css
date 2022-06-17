@@ -1,10 +1,10 @@
-.popup-sprint-five__wrapper {
+.popup__wrapper {
   position: relative;
   margin: 90px auto 0 auto;
 }
 
 @media screen and (max-width:660px) {
-  .popup-sprint-five__wrapper {
+  .popup__wrapper {
     width: 240px;
     height: 299px;
   }

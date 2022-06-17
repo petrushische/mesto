@@ -10,7 +10,7 @@ const popupInputText = document.querySelector(".popup__input_type_text");
 
 const formNameChange = document.querySelector(".popup__container");
 
-function editing() {
+function editingInput() {
   popupInputName.value = profileTitle.textContent;
   popupInputText.value = profileSubtitle.textContent;
 }
@@ -19,18 +19,20 @@ function editing() {
 
 function openPopup(popup) {
   popup.classList.add("popup__opened");
+  document.addEventListener("keydown", keyHandler);
 
 }
 
 
 function closePopup(popup) {
   popup.classList.remove("popup__opened");
+  document.removeEventListener("keydown", keyHandler);
 }
 
 
 popupChangeOpen.addEventListener("click", open = () => {
   openPopup(popupNamechange);
-  editing();
+  editingInput();
 });
 
 popupChangeClose.addEventListener("click", cloze = () => {
@@ -39,14 +41,14 @@ popupChangeClose.addEventListener("click", cloze = () => {
 
 
 
-function formNameChangeSubmit(evt) {
+function submitFormNameChange(evt) {
   evt.preventDefault();
   profileTitle.textContent = popupInputName.value;
   profileSubtitle.textContent = popupInputText.value;
   closePopup(popupNamechange);
 }
 
-formNameChange.addEventListener("submit", formNameChangeSubmit);
+formNameChange.addEventListener("submit", submitFormNameChange);
 
 
 // спринт 5
@@ -56,8 +58,12 @@ const popupCloseCardsAdd = document.querySelector(".popup__close_cards_add");
 const buttonCardsAdd = document.querySelector(".profile__button-add");
 
 
-
+function resetInputPopup(form) {
+  form.reset();
+}
 buttonCardsAdd.addEventListener("click", open = () => {
+  resetInputPopup(formCardsAdd);
+  disabledButton(settings, popupCardsAdd);
   openPopup(popupCardsAdd);
 
 });
@@ -80,10 +86,10 @@ const inputCardsAddLink = formCardsAdd.querySelector(".popup__input-cards-add-li
 
 
 // Попап для большой картинки
-const bigPopUp = document.querySelector(".popup-sprint-five");
-const bigClose = bigPopUp.querySelector(".popup-sprint-five__button");
-const bigFoto = bigPopUp.querySelector(".popup-sprint-five__foto");
-const bigTitle = bigPopUp.querySelector(".popup-sprint-five__text");
+const bigPopUp = document.querySelector(".popup_sprint_five");
+const bigClose = bigPopUp.querySelector(".popup__button");
+const bigFoto = bigPopUp.querySelector(".popup__foto");
+const bigTitle = bigPopUp.querySelector(".popup__text");
 
 
 
@@ -106,10 +112,10 @@ const renderTemplateCard = (item) => {
 
 
   fotoCard.addEventListener("click", open = () => {
-    openPopup(bigPopUp);
     bigFoto.src = fotoCard.src;
     bigFoto.alt = fotoCard.alt;
     bigTitle.textContent = titlCard.textContent;
+    openPopup(bigPopUp);
   });
 
 
@@ -156,12 +162,12 @@ const buttunSubmitCardsAdd = (evt) => {
   renderingCard({
     name: inputCardsAddName.value,
     link: inputCardsAddLink.value,
-    alt: "Добавленная вами картинка"
+    alt: inputCardsAddName.value,
   }, containerForCard);
 
-  inputCardsAddName.value = "";
-  inputCardsAddLink.value = "";
+
   closePopup(popupCardsAdd);
+
 }
 formCardsAdd.addEventListener("submit", buttunSubmitCardsAdd);
 
@@ -177,8 +183,6 @@ const keyHandler = (evt) => {
 
   }
 }
-
-document.addEventListener("keydown", keyHandler);
 
 // 
 const popupList = document.querySelectorAll(".popup");

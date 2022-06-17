@@ -1,4 +1,4 @@
-.popup-sprint-five__button {
+.popup__button {
   border: none;
   padding: 0;
   background: none;
@@ -12,13 +12,13 @@
 
 }
 
-.popup-sprint-five__button:hover {
+.popup__button:hover {
   cursor: pointer;
   opacity: .5;
 }
 
 @media screen and (max-width:660px) {
-  .popup-sprint-five__button {
+  .popup__button {
     background-image: url(../../../images/Close_Icon_for460px.svg);
     width: 20px;
     height: 20px;
