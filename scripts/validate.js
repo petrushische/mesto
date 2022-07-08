@@ -94,5 +94,15 @@ function disabledButton(option, form) {
   button.classList.add(option.inactiveButtonClass);
   button.setAttribute('disabled', true);
 }
+// cброс ошибок полей ввода 
+const resetInputError = (option, popup) => {
+  const inputList = Array.from(popup.querySelectorAll(option.inputSelector));
+  inputList.forEach((item) => {
+    item.classList.remove(option.inputErrorClass);
+    const span = popup.querySelector(`.${item.id}-error`);
+    span.classList.remove(option.errorClassVisible);
+    span.textContent = '';
+  })
+}
 
 enableValidation(settings);

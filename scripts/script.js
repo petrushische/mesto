@@ -32,6 +32,7 @@ function closePopup(popup) {
 
 popupChangeOpen.addEventListener("click", open = () => {
   openPopup(popupNamechange);
+  resetInputError(settings, popupNamechange);
   editingInput();
 });
 
